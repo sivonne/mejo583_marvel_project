@@ -16,10 +16,6 @@ app.get('/', function(request, response) {
   response.sendFile(__dirname + '/index.html');
 });
 
-// listen for requests :)
-const listener = app.listen(process.env.PORT, function() {
-  console.log('Your app is listening on port ' + listener.address().port);
-});
 
 //-------------------------------------------------------------//
 //----------------------- AUTHORIZATION -----------------------//
@@ -47,3 +43,35 @@ marvel.characters.findAll(5)
   .done();
 
 
+
+//-------------------------------------------------------------//
+//------------------------- API CALLS -------------------------//
+//-------------------------------------------------------------//
+
+
+
+app.get('/characters', function (request, response) {
+  
+  // Get information about an artist
+ marvel.characters.findByName('spider-man')
+  .then(function(res) {
+    console.log('Found character ID', res.data[0].id);
+    return marvel.characters.comics(res.data[0].id);
+  })
+  .then(function(res) {
+    console.log('found %s comics of %s total', res.meta.count, res.meta.total);
+    console.log(res.data);
+  })
+  .fail(console.error)
+  .done();
+});
+//-------------------------------------------------------------//
+//------------------------ WEB SERVER -------------------------//
+//-------------------------------------------------------------//
+
+
+// Listen for requests to our app
+// We make these requests from client.js
+var listener = app.listen(process.env.PORT, function () {
+  console.log('Your app is listening on port ' + listener.address().port);
+});
