@@ -36,17 +36,18 @@ var marvel = api.createClient({
 // });
 
 
-
+//https://gateway.marvel.com:443/v1/public/characters?apikey=publicKey
 
 //-------------------------------------------------------------//
 //------------------------- API CALLS -------------------------//
 //-------------------------------------------------------------//
-app.get('https://gateway.marvel.com:443/v1/public/characters?apikey=publicKey', function (request, response) {
+app.get('/series', function (request, response) {
   // Code from Resource https://www.npmjs.com/package/marvel-api
 marvel.series.findByTitle('spider-man')
   .then(console.log)
   .fail(console.error)
   .done();
+});
 //-------------------------------------------------------------//
 //------------------------ WEB SERVER -------------------------//
 //-------------------------------------------------------------//
