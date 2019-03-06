@@ -2,13 +2,27 @@
 /* called by your view template */
 
 .panel {
-		height: 100%;
-		width: 100%;
-	}
-	.panel.green {
-		margin-bottom: 400px
+		height: 100vh;
+		width: 100vw;
 	}
 
+	.panel.green {
+/* 		margin-bottom: 400px; */
+    background: green;
+	}
+.panel.turqoise {
+/* 		margin-bottom: 400px; */
+    background: blue;
+	}
+.panel.blue {
+/* 		margin-bottom: 400px; */
+    background: lightblue;
+	}
+
+.panel.bordeaux{
+    background: purple;
+
+}
 /* .flex{
 display: flex;
   flex-direction:column;
