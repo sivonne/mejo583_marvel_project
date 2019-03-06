@@ -28,7 +28,7 @@ var api = require('marvel-api');
  
 var marvel = api.createClient({
   publicKey: process.env.publicKey
-, privateKey: process.envprivateKey
+, privateKey: process.env.privateKey
 });
 
 
