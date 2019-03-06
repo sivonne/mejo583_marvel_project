@@ -51,10 +51,7 @@ var marvel = api.createClient({
 //   }, function(err) {
 //     console.log('Something went wrong when retrieving an access token', err.message);
 //   });
-marvel.characters.findAll(function(err, results) {
-  if (err) {
-    return console.error(err);
-  }
- 
-  console.log(results);
-});
+marvel.characters.findAll()
+  .then(console.log)
+  .fail(console.error)
+  .done();
