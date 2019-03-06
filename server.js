@@ -41,14 +41,9 @@ marvel.characters.findAll()
 
 
 //
-marvel.characters.findByName('spider-man')
-  .then(function(res) {
-    console.log('Found character ID', res.data[0].id);
-    return marvel.characters.comics(res.data[0].id);
-  })
-  .then(function(res) {
-    console.log('found %s comics of %s total', res.meta.count, res.meta.total);
-    console.log(res.data);
-  })
+marvel.characters.findAll(5)
+  .then(console.log)
   .fail(console.error)
   .done();
+
+
