@@ -7,5 +7,29 @@ fetch('https://gateway.marvel.com:443/v1/public/characters?apikey=5a9b29e7ed2141
     console.groupEnd();
  
 });
+  // init controller
+var controller = new ScrollMagic.Controller();
+
+// create a scene
+new ScrollMagic.Scene({
+        duration: 100,    // the scene should last for a scroll distance of 100px
+        offset: 50    // start this scene after scrolling for 50px
+    })
+    .setPin("#my-sticky-element") // pins the element for the the scene's duration
+    .addTo(controller); // assign the scene to the controller
+  
   
 });
+// init controller
+// var controller = new ScrollMagic.Controller();
+
+// // create a scene
+// new ScrollMagic.Scene({
+//         duration: 100,    // the scene should last for a scroll distance of 100px
+//         offset: 50    // start this scene after scrolling for 50px
+//     })
+//     .setPin("#sect-1") // pins the element for the the scene's duration
+//     .addTo(controller); // assign the scene to the controller
+  
+  
+// });
