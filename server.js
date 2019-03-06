@@ -30,17 +30,7 @@ var marvel = api.createClient({
   publicKey: 'my-public-key'
 , privateKey: 'my-private-key'
 });
-// Using the Client Credentials auth flow, authenticate our app
-marvel.clientCredentialsGrant()
-  .then(function(data) {
-  
-    // Save the access token so that it's used in future calls
-    spotifyApi.setAccessToken(data.body['access_token']);
-    console.log('Got an access token: ' + spotifyApi.getAccessToken());
-  
-  }, function(err) {
-    console.log('Something went wrong when retrieving an access token', err.message);
-  });
+
 
 //-------------------------------------------------------------//
 //------------------------- API CALLS -------------------------//
@@ -48,18 +38,10 @@ marvel.clientCredentialsGrant()
 app.get('/characters', function (request, response) {
   
   // Get information about an artist
- marvel.characters.findByName('spider-man')
-  .then(function(res) {
-    console.log('Found character ID', res.data[0].id);
-    return marvel.characters.comics(res.data[0].id);
-  })
-  .then(function(res) {
-    console.log('found %s comics of %s total', res.meta.count, res.meta.total);
-    console.log(res.data);
-  })
+marvel.characters.findByName('spider-man')
+  .then(console.log)
   .fail(console.error)
   .done();
-});
 //-------------------------------------------------------------//
 //------------------------ WEB SERVER -------------------------//
 //-------------------------------------------------------------//
