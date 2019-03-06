@@ -1,24 +1,17 @@
 /* styles */
 /* called by your view template */
 
-section{
-width: 100vw;
-height:100vh;
-}
-#sect-1{
-background: pink;
+.panel {
+		height: 100%;
+		width: 100%;
+	}
+	.panel.green {
+		margin-bottom: 400px
+	}
 
-}
-.sect-2{
-background: blue;
-}
-.sect-3{
-background: green;
-}
-
-.flex{
+/* .flex{
 display: flex;
   flex-direction:column;
   align-content:center;
   justify-content:center;
-}
+} */
