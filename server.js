@@ -30,6 +30,10 @@ var marvel = api.createClient({
   publicKey: process.env.publicKey
 , privateKey: process.env.privateKey
 });
+// var marvel = api.createClient({
+//   publicKey: process.env.publicKey
+// , privateKey: process.env.privateKey
+// });
 
 
 
@@ -39,11 +43,10 @@ var marvel = api.createClient({
 //-------------------------------------------------------------//
 app.get('https://gateway.marvel.com:443/v1/public/characters?apikey=publicKey', function (request, response) {
   // Code from Resource https://www.npmjs.com/package/marvel-api
-marvel.characters.findByName('spider-man')
+marvel.series.findByTitle('spider-man')
   .then(console.log)
   .fail(console.error)
   .done();
-  });
 //-------------------------------------------------------------//
 //------------------------ WEB SERVER -------------------------//
 //-------------------------------------------------------------//
