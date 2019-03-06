@@ -27,31 +27,28 @@ const listener = app.listen(process.env.PORT, function() {
 
 
 // Initialize Spotify API wrapper
+//used https://www.npmjs.com/package/marvel-api for setting up the API
 var api = require('marvel-api');
  
 var marvel = api.createClient({
   publicKey: 'my-public-key'
 , privateKey: 'my-private-key'
 });
-
-// The object we'll use to interact with the API
-// var api = new marvel({
-//   clientId : process.env.CLIENT_ID,
-//   clientSecret : process.env.CLIENT_SECRET
-// });
-
-// // Using the Client Credentials auth flow, authenticate our app
-// spotifyApi.clientCredentialsGrant()
-//   .then(function(data) {
-  
-//     // Save the access token so that it's used in future calls
-//     spotifyApi.setAccessToken(data.body['access_token']);
-//     console.log('Got an access token: ' + spotifyApi.getAccessToken());
-  
-//   }, function(err) {
-//     console.log('Something went wrong when retrieving an access token', err.message);
-//   });
 marvel.characters.findAll()
   .then(console.log)
+  .fail(console.error)
+  .done();
+
+
+//
+marvel.characters.findByName('spider-man')
+  .then(function(res) {
+    console.log('Found character ID', res.data[0].id);
+    return marvel.characters.comics(res.data[0].id);
+  })
+  .then(function(res) {
+    console.log('found %s comics of %s total', res.meta.count, res.meta.total);
+    console.log(res.data);
+  })
   .fail(console.error)
   .done();
