@@ -41,9 +41,9 @@ var marvel = api.createClient({
 //-------------------------------------------------------------//
 //------------------------- API CALLS -------------------------//
 //-------------------------------------------------------------//
-app.get('/series', function (request, response) {
+app.get('/characters', function (request, response) {
   // Code from Resource https://www.npmjs.com/package/marvel-api
-marvel.series.findByTitle('spider-man')
+marvel.comics.findAll('hulk')
   .then(console.log)
   .fail(console.error)
   .done();
