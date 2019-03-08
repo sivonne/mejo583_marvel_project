@@ -1,7 +1,7 @@
 /*global ScrollMagic */
 document.addEventListener('DOMContentLoaded', function() {
 //link from  https://developer.marvel.com/docs#!/public/getComicCharacterCollection_get_8
-fetch('/characters').then(resp => resp.json()).then((data) => {
+fetch('/series/x-men/characters').then(resp => resp.json()).then((data) => {
     console.group('%cResponse from /series', 'color: #F037A5; font-size: large');
     console.log(data);
     console.groupEnd();

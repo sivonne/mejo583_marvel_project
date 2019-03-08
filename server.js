@@ -41,9 +41,10 @@ var marvel = api.createClient({
 //-------------------------------------------------------------//
 //------------------------- API CALLS -------------------------//
 //-------------------------------------------------------------//
-app.get('/characters', function (request, response) {
+//how many x-men characters are there in the series?
+app.get('/series/x-men/characters', function (request, response) {
   // Code from Resource https://www.npmjs.com/package/marvel-api
-marvel.comics.findAll('hulk')
+marvel.characters.findAll()
   .then(console.log)
   .fail(console.error)
   .done();
