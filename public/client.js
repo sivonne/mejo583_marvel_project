@@ -6,7 +6,7 @@
 var endpoint = '/series/x-men/characters'
 
 function setChart(data){
-    var characters = data.marvel.map(e=>e.marvel.characters.findAll());
+    var characters = data.results.map(e=>e.characters);
     var comics_per_character = data.members.map(e=>e.characters.comic);
     var percentagePositionWeights = data.percentagePositionWeights;
     Chart.defaults.global.defaultFontColor = '#75787c';
@@ -72,7 +72,17 @@ fetch('/series/x-men/characters').then(resp => resp.json()).then((data) => {
 		}
 
 
-
+$.ajax({
+    method: "GET",
+    url: endpoint,
+    success: function(data){
+        setChart(data);
+    },
+    error: function(error_data){
+        console.log("Endpoint GET request error");
+        // console.log(error_data)
+    }
+})
 
 
   
