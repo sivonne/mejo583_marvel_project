@@ -1,4 +1,5 @@
 /*global ScrollMagic */
+/*global Chart */
 document.addEventListener('DOMContentLoaded', function() {
 //link from  https://developer.marvel.com/docs#!/public/getComicCharacterCollection_get_8
 fetch('/series/x-men/characters').then(resp => resp.json()).then((data) => {
@@ -30,18 +31,15 @@ fetch('/series/x-men/characters').then(resp => resp.json()).then((data) => {
 				.addTo(controller);
 		}
 
-  
-  
-  
-  
+
   var ctx = document.getElementById("myChart").getContext('2d');
 var myChart = new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+        labels: ['label 1'],
         datasets: [{
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
+            label: 'Name of Character',
+            data: [marvel.character.name, marvel.character.comics ],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
@@ -71,6 +69,11 @@ var myChart = new Chart(ctx, {
         }
     }
 });
+  
+
+}
+  
+  
   
   
   
