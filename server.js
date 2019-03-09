@@ -44,9 +44,9 @@ var marvel = api.createClient({
 //how many x-men characters are there in the series?
 app.get('/series/x-men/characters', function (request, response) {
   // Code from Resource https://www.npmjs.com/package/marvel-api
-  
-for(var i = 0; i < 30; i++){
-  marvel.characters.findAll()
+//looping through data
+for(var i = 0; i < 100; i++){
+  marvel.characters.findAll(limit = 99)//come back to this later
   .then(function(data) {
     
       // Send the first (only) track object
@@ -58,6 +58,17 @@ for(var i = 0; i < 30; i++){
   
   
 }
+  //starting code from https://www.chartjs.org/docs/latest/getting-started/integration.html
+var Chart = require('chart.js');
+var myChart = new Chart(ctx, {...});  
+  
+  
+  
+  
+  
+  
+  
+  
   
 //   app.get('/series/x-men/characters', function (request, response) {
   
