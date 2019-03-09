@@ -1,14 +1,13 @@
 /*global ScrollMagic */
 /*global Chart */
                   
- 
-   'use strict';
+ //Based off of code from https://stackoverflow.com/questions/49574172/how-to-integrate-data-from-ajax-into-chart-js
+   // 'use strict';
 var endpoint = '/series/x-men/characters'
 
 function setChart(data){
-    var characters = data.results.map(e=>e.characters);
-    var comics_per_character = data.members.map(e=>e.characters.comic);
-    var percentagePositionWeights = data.percentagePositionWeights;
+    var characters = data.results[characters].map(e=>e.name);
+    var comics_per_character = data.results.characters.comics.map(e=>e.available);
     Chart.defaults.global.defaultFontColor = '#75787c';
     // ------------------------------------------------------- //
     // Bar Chart Custom 1
