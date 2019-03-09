@@ -30,6 +30,10 @@ fetch('/series/x-men/characters').then(resp => resp.json()).then((data) => {
 				.addTo(controller);
 		}
 
+  
+  
+  
+  
   var ctx = document.getElementById("myChart").getContext('2d');
 var myChart = new Chart(ctx, {
     type: 'bar',

@@ -58,13 +58,8 @@ for(var i = 0; i < 100; i++){
   
   
 }
-  //starting code from https://www.chartjs.org/docs/latest/getting-started/integration.html
-var Chart = require('chart.js');
-var myChart = new Chart(ctx, {...});  
-  
-  
-  
-  
+
+
   
   
   
