@@ -2,7 +2,8 @@
 /*global Chart */
                   
  //Based off of code from https://stackoverflow.com/questions/49574172/how-to-integrate-data-from-ajax-into-chart-js
-   // 'use strict';
+//Data from https://developer.marvel.com/docs#!/public/getSeriesCharacterWrapper_get_27
+'use strict';
 var endpoint = '/series/x-men/characters'
 
 function setChart(data){
