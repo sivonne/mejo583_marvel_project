@@ -56,7 +56,8 @@ for(var i = 0; i < 100; i++){
   .fail(console.error)
   .done();
   
-
+}
+});
   
   
   
@@ -101,7 +102,7 @@ for(var i = 0; i < 100; i++){
   
 //   // Call check so we don't send a response until we have all the data back
 //   check();
-});
+
   
   
   
