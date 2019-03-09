@@ -49,11 +49,7 @@ marvel.characters.findAll()
   .fail(console.error)
   .done();
   //need to send response
-marvel.characters.findAll('female')
-  .then(console.log)
-  .fail(console.error)
-  .done();
-  //need to send response
+
 });
 //-------------------------------------------------------------//
 //------------------------ WEB SERVER -------------------------//
