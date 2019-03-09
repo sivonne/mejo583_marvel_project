@@ -1,41 +1,12 @@
 /*global ScrollMagic */
 /*global Chart */
-document.addEventListener('DOMContentLoaded', function() {
-//link from  https://developer.marvel.com/docs#!/public/getComicCharacterCollection_get_8
-fetch('/series/x-men/characters').then(resp => resp.json()).then((data) => {
-    console.group('%cResponse from /series', 'color: #F037A5; font-size: large');
-    console.log(data);
-    console.groupEnd();
-    
-    });
-  
-  
-
-// init
-		var controller = new ScrollMagic.Controller({
-			globalSceneOptions: {
-				triggerHook: 'onLeave'
-			}
-		});
-
-		// get all slides
-		var slides = document.querySelectorAll("section.panel");
-
-		// create scene for every slide
-		for (var i=0; i<slides.length; i++) {
-			new ScrollMagic.Scene({
-					triggerElement: slides[i]
-				})
-				.setPin(slides[i])
-				.addIndicators() // add indicators (requires plugin)
-				.addTo(controller);
-		}
                   
-  'use strict';
+ 
+   'use strict';
 var endpoint = '/series/x-men/characters'
 
 function setChart(data){
-    var characters = data.members.map(e=>e.characters.name);
+    var characters = data.marvel.map(e=>e.marvel.characters.findAll());
     var comics_per_character = data.members.map(e=>e.characters.comic);
     var percentagePositionWeights = data.percentagePositionWeights;
     Chart.defaults.global.defaultFontColor = '#75787c';
@@ -67,17 +38,39 @@ function setChart(data){
     })
 }
 
-$.ajax({
-    method: "GET",
-    url: endpoint,
-    success: function(data){
-        setChart(data);
-    },
-    error: function(error_data){
-        console.log("Endpoint GET request error");
-        // console.log(error_data)
-    }
-})
+
+
+document.addEventListener('DOMContentLoaded', function() {
+//link from  https://developer.marvel.com/docs#!/public/getComicCharacterCollection_get_8
+fetch('/series/x-men/characters').then(resp => resp.json()).then((data) => {
+    console.group('%cResponse from /series', 'color: #F037A5; font-size: large');
+    console.log(data);
+    console.groupEnd();
+    
+    });
+  
+  
+
+// init
+		var controller = new ScrollMagic.Controller({
+			globalSceneOptions: {
+				triggerHook: 'onLeave'
+			}
+		});
+
+		// get all slides
+		var slides = document.querySelectorAll("section.panel");
+
+		// create scene for every slide
+		for (var i=0; i<slides.length; i++) {
+			new ScrollMagic.Scene({
+					triggerElement: slides[i]
+				})
+				.setPin(slides[i])
+				.addIndicators() // add indicators (requires plugin)
+				.addTo(controller);
+		}
+
 
 
 

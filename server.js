@@ -57,6 +57,38 @@ app.get('/series/x-men/characters', function (request, response) {
     
   .fail(console.error)
   .done();
+  
+  
+
+
+$.ajax({
+    method: "GET",
+    url: endpoint,
+    success: function(data){
+        setChart(data);
+    },
+    error: function(error_data){
+        console.log("Endpoint GET request error");
+        // console.log(error_data)
+    }
+})
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
 // }
 //   var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 // 		var color = Chart.helpers.color;
