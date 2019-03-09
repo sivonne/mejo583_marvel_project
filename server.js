@@ -42,21 +42,67 @@ var marvel = api.createClient({
 //------------------------- API CALLS -------------------------//
 //-------------------------------------------------------------//
 //how many x-men characters are there in the series?
-app.get('/series/x-men/characters', function (request, response) {
-  // Code from Resource https://www.npmjs.com/package/marvel-api
+// app.get('/series/x-men/characters', function (request, response) {
+//   // Code from Resource https://www.npmjs.com/package/marvel-api
   
-marvel.characters.findAll()
-  .then(function(data) {
+// marvel.characters.findAll()
+//   .then(function(data) {
     
-      // Send the first (only) track object
-      response.send(data.character.gender[0]);
-       })
+//       // Send the first (only) track object
+//       response.send(data.character[0]);
+//        })
     
-  .fail(console.error)
-  .done();
-  //need to send response
+//   .fail(console.error)
+//   .done();
 
+  
+  app.get('/series/x-men/characters', function (request, response) {
+  
+  // Make an initial list of countries
+  let series_name = [
+    {
+      name: "x-men",
+    },
+    {
+      name: "avengers",
+    },
+  ];
+  
+  
+  // Get the playlists for the given category for each country
+ series_name.forEach((c) => {
+    marvel.characters.findAll(
+      'series', 
+      {a_series: c.code, limit : 10 }
+    )
+      .then((data) => {
+        // Persist the data on this country object
+        c.data = data.body;
+    }, function(err) {
+      console.error(err);
+    });
+  });
+  
+  // Check will see if we have .data on all the country objects
+  // which indicates all requests have returned successfully.
+  // If the lengths don't match then we call check again in 500ms
+  let check = () => {
+    if (series_name.filter(c => c.data !== undefined).length 
+    !== series_name.length) {
+      setTimeout(check, 500);
+    } else {
+      response.send(series_name);
+    }
+  }
+  
+  // Call check so we don't send a response until we have all the data back
+  check();
 });
+  
+  
+  
+
+// });
 // app.get('/search-track', function (request, response) {
   
 //   // Search for a track!
