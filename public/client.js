@@ -6,7 +6,7 @@
 var endpoint = '/series/x-men/characters'
 
 function setChart(data){
-    var characters = data.results[characters].map(e=>e.name);
+    var characters = data.results.map(e=>e.name);
     var comics_per_character = data.results.characters.comics.map(e=>e.available);
     Chart.defaults.global.defaultFontColor = '#75787c';
     // ------------------------------------------------------- //
