@@ -23,6 +23,9 @@
     background: purple;
 
 }
+h1{
+  font-size: 40em;
+}
 /* .flex{
 display: flex;
   flex-direction:column;
