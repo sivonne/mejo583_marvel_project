@@ -31,7 +31,57 @@ fetch('/series/x-men/characters').then(resp => resp.json()).then((data) => {
 				.addTo(controller);
 		}
                   
-  
+  'use strict';
+var endpoint = 'https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json'
+
+function setChart(data){
+    var portfolioInstruments = data.members.map(e=>e.name);
+    var absolutPositionValues = data.members.map(e=>e.age);
+    var percentagePositionWeights = data.percentagePositionWeights;
+    Chart.defaults.global.defaultFontColor = '#75787c';
+    // ------------------------------------------------------- //
+    // Bar Chart Custom 1
+    // ------------------------------------------------------ //
+    var $chart = $('#barChartCustom1');
+    var barChartHome = new Chart($chart[0].getContext("2d"), {
+        type: 'bar',
+        options: {
+            scales: {
+                xAxes: [{ display: true, barPercentage: 0.2 }],
+                yAxes: [{ ticks: { max: 100, min: 0 }, display: false }],
+            },
+            legend: { display: false }
+        },
+        data: {
+            labels: portfolioInstruments,
+            datasets: [
+                {
+                    label: "Data Set 1",
+                    backgroundColor: [  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99'],
+                    borderColor: [  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99'],
+                    borderWidth: 0.3,
+                    data: absolutPositionValues
+                }
+            ]
+        }
+    })
+}
+
+$.ajax({
+    method: "GET",
+    url: endpoint,
+    success: function(data){
+        setChart(data);
+    },
+    error: function(error_data){
+        console.log("Endpoint GET request error");
+        // console.log(error_data)
+    }
+})
+
+$(document).ready(function () {
+
+});
 
 
   
