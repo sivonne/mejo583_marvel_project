@@ -1,12 +1,13 @@
 /*global ScrollMagic */
 /*global Chart */
                   
- //Based off of code from https://stackoverflow.com/questions/49574172/how-to-integrate-data-from-ajax-into-chart-js
+//Based off of code from https://stackoverflow.com/questions/49574172/how-to-integrate-data-from-ajax-into-chart-js
 //Data from https://developer.marvel.com/docs#!/public/getSeriesCharacterWrapper_get_27
 'use strict';
 var endpoint = '/series/x-men/characters'
 
 function setChart(data){
+  //help from a friend
     var characters = [];
     data.data.forEach((e) => {
       characters.push(e.name);
@@ -15,9 +16,8 @@ function setChart(data){
     var comics_per_character = data.data.map((e) => { //comics_per_character contains a list of comic items for each character
       return e.comics.items;
     });
-  //oh, yes in the specific dataset of series/characters, the number of comics available for each character 
-  //trying to chart character names on X axis and # of comics they have on Y access (in X-men series)
-    Chart.defaults.global.defaultFontColor = '#75787c';
+ //end help from a friend
+  Chart.defaults.global.defaultFontColor = '#75787c';
     // ------------------------------------------------------- //
     // Bar Chart Custom 1
     // ------------------------------------------------------ //
