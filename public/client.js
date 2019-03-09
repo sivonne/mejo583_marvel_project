@@ -32,17 +32,17 @@ fetch('/series/x-men/characters').then(resp => resp.json()).then((data) => {
 		}
                   
   'use strict';
-var endpoint = 'https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json'
+var endpoint = '/series/x-men/characters'
 
 function setChart(data){
-    var portfolioInstruments = data.members.map(e=>e.name);
-    var absolutPositionValues = data.members.map(e=>e.age);
+    var characters = data.members.map(e=>e.characters.name);
+    var comics_per_character = data.members.map(e=>e.characters.comic);
     var percentagePositionWeights = data.percentagePositionWeights;
     Chart.defaults.global.defaultFontColor = '#75787c';
     // ------------------------------------------------------- //
     // Bar Chart Custom 1
     // ------------------------------------------------------ //
-    var $chart = $('#barChartCustom1');
+    var $chart = $('#myChart');
     var barChartHome = new Chart($chart[0].getContext("2d"), {
         type: 'bar',
         options: {
@@ -53,14 +53,14 @@ function setChart(data){
             legend: { display: false }
         },
         data: {
-            labels: portfolioInstruments,
+            labels: characters,
             datasets: [
                 {
                     label: "Data Set 1",
                     backgroundColor: [  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99'],
                     borderColor: [  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99'],
                     borderWidth: 0.3,
-                    data: absolutPositionValues
+                    data: comics_per_character
                 }
             ]
         }
@@ -79,9 +79,7 @@ $.ajax({
     }
 })
 
-$(document).ready(function () {
 
-});
 
 
   
