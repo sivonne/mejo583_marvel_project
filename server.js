@@ -49,25 +49,26 @@ marvel.characters.findAll()
   .then(function(data) {
     
       // Send the first (only) track object
-      response.send(data.body.tracks.items[0]);
+      response.send(data.character.gender[0]);
+       })
     
   .fail(console.error)
   .done();
   //need to send response
 
 });
-app.get('/search-track', function (request, response) {
+// app.get('/search-track', function (request, response) {
   
-  // Search for a track!
-  spotifyApi.searchTracks('track:proud of u', {limit: 1})
-    .then(function(data) {
+//   // Search for a track!
+//   spotifyApi.searchTracks('track:proud of u', {limit: 1})
+//     .then(function(data) {
     
-      // Send the first (only) track object
-      response.send(data.body.tracks.items[0]);
+//       // Send the first (only) track object
+//       response.send(data.body.tracks.items[0]);
     
-    }, function(err) {
-      console.error(err);
-    });
+//     }, function(err) {
+//       console.error(err);
+//     });
 
 
 
