@@ -45,7 +45,8 @@ var marvel = api.createClient({
 app.get('/series/x-men/characters', function (request, response) {
   // Code from Resource https://www.npmjs.com/package/marvel-api
   
-marvel.characters.findAll()
+for(var i = 0; i < 30; i++){
+  marvel.characters.findAll()
   .then(function(data) {
     
       // Send the first (only) track object
@@ -54,7 +55,9 @@ marvel.characters.findAll()
     
   .fail(console.error)
   .done();
-
+  
+  
+}
   
 //   app.get('/series/x-men/characters', function (request, response) {
   
