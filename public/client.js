@@ -8,13 +8,15 @@ var endpoint = '/series/x-men/characters'
 
 function setChart(data){
     var characters = [];
-    data.forEach((e) => {
+    data.data.forEach((e) => {
       characters.push(e.name);
     });
-  console.log(characters);
-  //maybe we need to do data.results?
   
-    var comics_per_character = data.results.characters.comics.map(e=>e.available);
+    var comics_per_character = data.data.map((e) => { //comics_per_character contains a list of comic items for each character
+      return e.comics.items;
+    });
+  //oh, yes in the specific dataset of series/characters, the number of comics available for each character 
+  //trying to chart character names on X axis and # of comics they have on Y access (in X-men series)
     Chart.defaults.global.defaultFontColor = '#75787c';
     // ------------------------------------------------------- //
     // Bar Chart Custom 1
