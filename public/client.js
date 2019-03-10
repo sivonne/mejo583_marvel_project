@@ -15,7 +15,7 @@ function setChart(data){
   
     var comics_per_character = [];
   data.data.map((e) => { //comics_per_character contains a list of comic items for each character
-      return e.comics.items;
+      return e.comics.available;
     
     });
  //end help from a friend

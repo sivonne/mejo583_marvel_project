@@ -50,11 +50,8 @@ app.get('/series/x-men/characters', function (request, response) {
 // for(let i = 0; i < 99; i++){
   marvel.characters.findAll(limit = 99)//come back to this later
   .then(function(data) {
-    
-      // Send the first (only) track object
       response.send(data);
        })
-    
   .fail(console.error)
   .done();
   
