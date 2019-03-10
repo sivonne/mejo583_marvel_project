@@ -49,18 +49,44 @@ app.get('/series/x-men/characters', function (request, response) {
 //looping through data
 // for(var i = 0; i < 200; i++){
   //for the sake of the size of the data, I only showed 400 characters for now 
-  marvel.forEach.characters(findAl
-  marvel.characters.findAll(limit = 100, offset=0)
-  //come back to this later
+  // marvel.characters.findAll(limit = 100, offset=0), 
+  //   marvel.characters.findAll(limit = 100, offset=100),
+  //   marvel.characters.findAll(limit = 100, offset=200), 
+  //   marvel.characters.findAll(limit = 100, offset=300)
+  forEach(marvel.characters.[findAll(limit = 100, offset=0))//come back to this later
   .then(function(data) {
       response.send(data);
        })
   .fail(console.error)
   .done();
-
+ let amountOfCalls = [
+    {
+      limit: 100,
+      offset: 0
+    },
+    {
+      limit: 100,
+      offset: 100
+    },
+    {
+      limit: 100,
+      offset: 200
+    }
+  ];
     
 
-
+amountOfCalls,forEach((c) => {
+    spotifyApi.getPlaylistsForCategory(
+      'jazz', 
+      { country: c.code, limit : 10 }
+    )
+      .then((data) => {
+        // Persist the data on this country object
+        c.data = data.body;
+    }, function(err) {
+      console.error(err);
+    });
+  });
 
 
 
