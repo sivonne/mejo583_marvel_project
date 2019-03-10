@@ -6,15 +6,15 @@
 		width: 100vw;
 	}
 
-	.panel.green {
+	.panel.three {
 /* 		margin-bottom: 400px; */
     background: #BE2A05;
 	}
-.panel.turqoise {
+.panel.two {
 /* 		margin-bottom: 400px; */
     background: #364D53;
 	}
-.panel.blue {
+.panel.one{
 /* 		margin-bottom: 400px; */
     background: #BF9A1E;
 	}
