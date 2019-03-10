@@ -18,7 +18,7 @@
 /* 		margin-bottom: 400px; */
     background: #364D53;
 	}
-/**/
+/*Svg set-up from https://www.w3schools.com/css/css3_animations.asp*/
 @keyframes svg {
   from {background-color: #364D53;}
   to {background-color: #BF9A1E;}
@@ -28,11 +28,15 @@ svg:hover {
   animation-name: svg;
   animation-duration: 4s;
 }
+svg{
+  
+}
 h1{
   font-size: 2em;
   color: #0467A8;
   font-family: sans-serif;
 }
+
 /* .flex{
 display: flex;
   flex-direction:column;
