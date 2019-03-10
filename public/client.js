@@ -13,8 +13,10 @@ function setChart(data){
       characters.push(e.name);
     });
   
-    var comics_per_character = data.data.map((e) => { //comics_per_character contains a list of comic items for each character
+    var comics_per_character = [];
+  data.data.map((e) => { //comics_per_character contains a list of comic items for each character
       return e.comics.items;
+    
     });
  //end help from a friend
   Chart.defaults.global.defaultFontColor = '#75787c';
