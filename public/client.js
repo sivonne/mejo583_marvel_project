@@ -47,6 +47,17 @@ function setChart(data){
         }
     })
 }
+$.ajax({
+    method: "GET",
+    url: endpoint,
+    success: function(data){
+        setChart(data);
+    },
+    error: function(error_data){
+        console.log("Endpoint GET request error");
+        // console.log(error_data)
+    }
+})
 
 
 
@@ -80,19 +91,6 @@ fetch('/series/x-men/characters').then(resp => resp.json()).then((data) => {
 				.addIndicators() // add indicators (requires plugin)
 				.addTo(controller);
 		}
-
-
-$.ajax({
-    method: "GET",
-    url: endpoint,
-    success: function(data){
-        setChart(data);
-    },
-    error: function(error_data){
-        console.log("Endpoint GET request error");
-        // console.log(error_data)
-    }
-})
 
 
   
