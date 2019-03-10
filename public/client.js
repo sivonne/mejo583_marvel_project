@@ -19,7 +19,7 @@ function setChart(data){
     
     });
  //end help from a friend
-  Chart.defaults.global.defaultFontColor = '#75787c';
+  Chart.defaults.global.defaultFontColor = '#BF9A1E';
     // ------------------------------------------------------- //
     // Bar Chart Custom 1
     // ------------------------------------------------------ //
@@ -29,7 +29,7 @@ function setChart(data){
         options: {
             scales: {
                 xAxes: [{ display: true, barPercentage: 0.5 }],
-                yAxes: [{ ticks: { max: 150, min: 0 }, display: false }],
+                yAxes: [{ ticks: { max: 200, min: 0 }, display: true }],
             },
             legend: { display: false }
         },
@@ -38,15 +38,15 @@ function setChart(data){
             datasets: [
                 {
                     label: "Character",
-                    backgroundColor: [  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99'],
-                    borderColor: [  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99'],
+                    backgroundColor: '#0467A8',
+                    borderColor: '#0467A8',
                     borderWidth: 0.3,
                     data: characters.name
                 },
               {
                     label: "Number of Comics",
-                    backgroundColor: [  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99'],
-                    borderColor: [  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99'],
+                    backgroundColor: '#0467A8',
+                    borderColor: '#0467A8',
                     borderWidth: 0.3,
                     data: comics_per_character
                 }
