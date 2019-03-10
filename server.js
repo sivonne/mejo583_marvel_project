@@ -1,8 +1,5 @@
-
-
 // server.js
 // where your node app starts
-
 // init project
 const express = require('express');
 const app = express();
@@ -24,7 +21,7 @@ app.get('/', function(request, response) {
 //-------------------------------------------------------------//
 
 
-// Initialize Spotify API wrapper
+// Initialize Marvel API wrapper
 //used https://www.npmjs.com/package/marvel-api for setting up the API
 var api = require('marvel-api');
  
@@ -32,21 +29,16 @@ var marvel = api.createClient({
   publicKey: process.env.publicKey
 , privateKey: process.env.privateKey
 });
-// var marvel = api.createClient({
-//   publicKey: process.env.publicKey
-// , privateKey: process.env.privateKey
-// });
 
 
-//https://gateway.marvel.com:443/v1/public/characters?apikey=publicKey
 
 //-------------------------------------------------------------//
 //------------------------- API CALLS -------------------------//
 //-------------------------------------------------------------//
-//how many x-men characters are there in the series?
+//gets data for: how many x-men characters are there in the series?
 app.get('/series/x-men/characters', function (request, response) {
-  // Code from Resource https://www.npmjs.com/package/marvel-api
-//looping through data
+  // Used some code from Resource https://www.npmjs.com/package/marvel-api
+  //tried looping through data
   //for the sake of the size of the data, I only showed 100 characters for now (couldn't figure out how to loop through, below this code are some attempts to show where I was headed.
   marvel.characters.findAll(limit = 100, offset=0)
   .then(function(data) {

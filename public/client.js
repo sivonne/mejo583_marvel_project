@@ -26,7 +26,7 @@ function setChart(data){
     // Bar Chart Custom 1
     // ------------------------------------------------------ //
     var $chart = $('#myChart');
-  //sets up a bar chart
+  //sets up a bar chart, added custom colors and settings/parameter adjustments
     var barChartHome = new Chart($chart[0].getContext("2d"), {
         type: 'bar',
         options: {
@@ -99,15 +99,5 @@ fetch('/series/x-men/characters').then(resp => resp.json()).then((data) => {//co
 				.setPin(slides[i])
 				.addIndicators() // add indicators (requires plugin)
 				.addTo(controller);
-		}
-
-
-  
-  
-  
-  
-  
-  
-  
-  
+    }  
 });

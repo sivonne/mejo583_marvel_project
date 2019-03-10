@@ -1,11 +1,13 @@
 /* styles */
 /* called by your view template */
 
+/* This section was based on code from Scroll Magic at http://scrollmagic.io/examples/basic/section_wipes_natural.html
+ */
 .panel {
 		height: 100vh;
 		width: 100vw;
 	}
-
+/* added custom background colors matching dominant colors in a photo of X-men using Adobe Color https://color.adobe.com */
 	.panel.three {
 /* 		margin-bottom: 400px; */
     background: #BE2A05;
@@ -18,26 +20,29 @@
 /* 		margin-bottom: 400px; */
     background: #364D53;
 	}
+
 /*Svg set-up from https://www.w3schools.com/css/css3_animations.asp*/
-@keyframes svg {
+@keyframes x-men {
   from {background-color: #364D53;}
   to {background-color: #BF9A1E;}
 }
 /* Transforming help from https://css-tricks.com/svg-animation-on-css-transforms/ */
-@keyframes svg2 {
+@keyframes x-men-no-hover {
     from {transform: none;}
     to {transform: translatey(400px);}
 }
 /*Svg set-up from https://www.w3schools.com/css/css3_animations.asp*/
+/*on hover, x-men color changes*/
 #x-men:hover {
   background-color: #364D53;
-  animation-name: svg;
+  animation-name: x-men;
   animation-duration: 4s;
 }
 /* Transforming help from https://css-tricks.com/svg-animation-on-css-transforms/ */
+/*sends x-men svg to bottom of page*/
 #x-men{
   background-color: #364D53;
-  animation-name: svg2;
+  animation-name: x-men-no-hover;
   animation-duration: 4s;
   animation-timing-function: ease-out;
   transform-origin: bottom;
@@ -50,25 +55,20 @@
 }
 @keyframes question {
     from {transform: none;}
-    to {transform: rotate(270deg) scaleX(0.5) translateX(100px);}
+    to {transform: rotate(250deg) scaleX(0.5) translateX(100px);}
 }
-
+/*sets up h1 styling*/
 h1{
   font-size: 2em;
   color: #212F33;
   font-family: sans-serif;
 }
-
+/*sets up flexbox styling*/
 .flex{
   padding-top:5%;
 display: flex;
   align-items:center;
   justify-content:space-between;
-  flex-direction:column;
-  
-  
-  
+  flex-direction:column; 
 }
-.chart-js{
- padding: 20%;
-}
+
