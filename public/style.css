@@ -23,24 +23,38 @@
   from {background-color: #364D53;}
   to {background-color: #BF9A1E;}
 }
+/* Transforming help from https://css-tricks.com/svg-animation-on-css-transforms/ */
+@keyframes svg2 {
+    from {transform: none;}
+    to {transform: translatey(400px);}
+}
+/*Svg set-up from https://www.w3schools.com/css/css3_animations.asp*/
 svg:hover {
   background-color: #364D53;
   animation-name: svg;
   animation-duration: 4s;
 }
+/* Transforming help from https://css-tricks.com/svg-animation-on-css-transforms/ */
 svg{
-/*   padding:20%; */
+  background-color: #364D53;
+  animation-name: svg2;
+  animation-duration: 4s;
+  animation-timing-function: ease-out;
+  transform-origin: bottom;
 }
+
+
 h1{
   font-size: 2em;
   color: #0467A8;
   font-family: sans-serif;
 }
 
-.flex, #content-panel1{
+.flex{
+  padding-top:5%;
 display: flex;
   align-items:center;
-justify-content:flex-start;
+  justify-content:center;
   flex-direction:column;
   
   

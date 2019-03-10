@@ -48,9 +48,10 @@ app.get('/series/x-men/characters', function (request, response) {
   // Code from Resource https://www.npmjs.com/package/marvel-api
 //looping through data
 // for(let i = 0; i < characters.length; i++){
-  marvel.characters.findAll(limit = 99)//come back to this later
+  marvel.characters.findAll()//come back to this later
   .then(function(data) {
       response.send(data);
+    limit++;
     
        })
   
