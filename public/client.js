@@ -28,7 +28,7 @@ function setChart(data){
         type: 'bar',
         options: {
             scales: {
-                xAxes: [{ display: true, barPercentage: 0.4 }],
+                xAxes: [{ display: true, barPercentage: 0.5 }],
                 yAxes: [{ ticks: { max: 150, min: 0 }, display: false }],
             },
             legend: { display: false }
