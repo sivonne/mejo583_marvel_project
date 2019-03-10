@@ -1,7 +1,7 @@
 /*global ScrollMagic */
 /*global Chart */
                   
-//Based off of code from https://stackoverflow.com/questions/49574172/how-to-integrate-data-from-ajax-into-chart-js
+//The Chart JS code below was based off of code from https://stackoverflow.com/questions/49574172/how-to-integrate-data-from-ajax-into-chart-js
 //Data from https://developer.marvel.com/docs#!/public/getSeriesCharacterWrapper_get_27
 'use strict';
 var endpoint = '/series/x-men/characters'
@@ -13,8 +13,8 @@ function setChart(data){
       characters.push(e.name);
     });
   
-    var comics_per_character = [];
-  data.data.map((e) => { //comics_per_character contains a list of comic items for each character
+    var comics_per_character=
+  data.data.map((e) => { 
       return e.comics.available;
     
     });
@@ -28,7 +28,7 @@ function setChart(data){
         type: 'bar',
         options: {
             scales: {
-                xAxes: [{ display: true, barPercentage: 0.2 }],
+                xAxes: [{ display: true, barPercentage: 0.5 }],
                 yAxes: [{ ticks: { max: 100, min: 0 }, display: false }],
             },
             legend: { display: false }
@@ -37,7 +37,14 @@ function setChart(data){
             labels: characters,
             datasets: [
                 {
-                    label: "Data Set 1",
+                    label: "Character",
+                    backgroundColor: ['#BE2A05'],
+                    borderColor: [  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99'],
+                    borderWidth: 0.3,
+                    data: characters.name
+                },
+              {
+                    label: "Number of Comics",
                     backgroundColor: [  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99'],
                     borderColor: [  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99'],
                     borderWidth: 0.3,
