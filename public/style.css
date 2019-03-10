@@ -8,24 +8,21 @@
 
 	.panel.green {
 /* 		margin-bottom: 400px; */
-    background: green;
+    background: #BE2A05;
 	}
 .panel.turqoise {
 /* 		margin-bottom: 400px; */
-    background: blue;
+    background: #364D53;
 	}
 .panel.blue {
 /* 		margin-bottom: 400px; */
-    background: lightblue;
+    background: #BF9A1E;
 	}
 
-.panel.bordeaux{
-    background: purple;
-
-}
 h1{
   font-size: 2em;
   color: #0467A8;
+  font-family: sans-serif;
 }
 /* .flex{
 display: flex;
