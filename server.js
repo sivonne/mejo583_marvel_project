@@ -53,13 +53,16 @@ app.get('/series/x-men/characters', function (request, response) {
   //   marvel.characters.findAll(limit = 100, offset=100),
   //   marvel.characters.findAll(limit = 100, offset=200), 
   //   marvel.characters.findAll(limit = 100, offset=300)
-  // forEach(marvel.characters.[findAll(limit = 100, offset=0))//come back to this later
+  // // forEach(marvel.characters.[findAll(limit = 100, offset=0))//come back to this later
   // .then(function(data) {
   //     response.send(data);
   //      })
   // .fail(console.error)
   // .done();
- let amountOfCalls = [
+  
+  
+  //attempt at looping through offsets, modelled off of spotify assignment
+ let amountOfCalls = marvel.characters.findAll([
     {
       offset: 0
     },
@@ -68,18 +71,19 @@ app.get('/series/x-men/characters', function (request, response) {
     },
     {
       offset: 200
+      
     }
-  ];
+  ]);
     
 
 amountOfCalls.forEach((c) => {
-    marvel.characters.findAll(c)
-    
-  .then(function(data) {
-      response.send(data);
-       })
-  .fail(console.error)
-  .done();
+    amountOfCalls({amountOfCalls: c.offset, limit : 100})
+  .then((data) => {
+        // Persist the data on this country object
+        c.data = data.body;
+    }, function(err) {
+      console.error(err);
+    });
   });
 
 
