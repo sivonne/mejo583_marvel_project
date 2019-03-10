@@ -18,8 +18,16 @@
 /* 		margin-bottom: 400px; */
     background: #364D53;
 	}
-
-
+/**/
+@keyframes svg {
+  from {background-color: #364D53;}
+  to {background-color: #BF9A1E;}
+}
+svg:hover {
+  background-color: #364D53;
+  animation-name: svg;
+  animation-duration: 4s;
+}
 h1{
   font-size: 2em;
   color: #0467A8;
