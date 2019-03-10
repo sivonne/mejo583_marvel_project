@@ -29,7 +29,7 @@ function setChart(data){
         options: {
             scales: {
                 xAxes: [{ display: true, barPercentage: 0.5 }],
-                yAxes: [{ ticks: { max: 100, min: 0 }, display: false }],
+                yAxes: [{ ticks: { max: 150, min: 0 }, display: false }],
             },
             legend: { display: false }
         },
@@ -38,7 +38,7 @@ function setChart(data){
             datasets: [
                 {
                     label: "Character",
-                    backgroundColor: ['#BE2A05'],
+                    backgroundColor: [  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99'],
                     borderColor: [  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99',  '#EF8C99'],
                     borderWidth: 0.3,
                     data: characters.name
