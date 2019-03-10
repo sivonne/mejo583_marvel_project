@@ -53,39 +53,33 @@ app.get('/series/x-men/characters', function (request, response) {
   //   marvel.characters.findAll(limit = 100, offset=100),
   //   marvel.characters.findAll(limit = 100, offset=200), 
   //   marvel.characters.findAll(limit = 100, offset=300)
-  forEach(marvel.characters.[findAll(limit = 100, offset=0))//come back to this later
-  .then(function(data) {
-      response.send(data);
-       })
-  .fail(console.error)
-  .done();
+  // forEach(marvel.characters.[findAll(limit = 100, offset=0))//come back to this later
+  // .then(function(data) {
+  //     response.send(data);
+  //      })
+  // .fail(console.error)
+  // .done();
  let amountOfCalls = [
     {
-      limit: 100,
       offset: 0
     },
     {
-      limit: 100,
       offset: 100
     },
     {
-      limit: 100,
       offset: 200
     }
   ];
     
 
-amountOfCalls,forEach((c) => {
-    spotifyApi.getPlaylistsForCategory(
-      'jazz', 
-      { country: c.code, limit : 10 }
-    )
-      .then((data) => {
-        // Persist the data on this country object
-        c.data = data.body;
-    }, function(err) {
-      console.error(err);
-    });
+amountOfCalls.forEach((c) => {
+    marvel.characters.findAll(c)
+    
+  .then(function(data) {
+      response.send(data);
+       })
+  .fail(console.error)
+  .done();
   });
 
 
